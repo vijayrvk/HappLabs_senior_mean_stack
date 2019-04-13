@@ -1,0 +1,50 @@
+<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+<div class="page-wrapper">
+    <div id="page-content">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="margin-top:0px;margin-bottom: 20px;color: #11306f;">Question</h4>
+            </div>
+        </div>
+        <div class="row" ng-repeat="ques in vm.question" style="padding-top: 15px;">
+            <div class="form-group col-md-8" style="padding-right: 5px;">
+                <label for="email" class="inp">Question <span style="color: red;">*</span></label>
+                <input type="text" class="form-control bottom-line" autocomplete="off" maxlength="150" id="email"  ng-model="ques.question"
+                />
+            </div>
+            <div class="form-group col-md-2" style="padding-right: 5px;">
+                <div class="caretd" style="float: right;"></div>
+                <label for="companySize" class="control-label" style="padding-left: 0px;">Catergory <span style="color: red;">*</span></label>
+                <select id="catergory" class="form-control bottom-line" ng-model="ques.category" ng-options="obj.value as obj.title for obj in vm.catergories | orderBy:'title'">
+                    <option value="" disabled selected>Select</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <a ng-click="vm.addQuesRow($index)">
+                    <i class="fa fa-plus"></i>
+                </a>
+                <a ng-click="vm.removeQuesRow($index)">
+                    <i class="fa fa-minus"></i>
+                </a>
+            </div>
+            <div class="col-md-3">
+                <label for="opt1" class="inp">Option <span style="color: red;">*</span></label>
+                <input type="text" class="form-control bottom-line" autocomplete="off" maxlength="150" id="opt1"  ng-model="ques.value.option1"
+                />
+            </div>
+            <div class="col-md-3">
+                <label for="opt2" class="inp">Option <span style="color: red;">*</span></label>
+                <input type="text" class="form-control bottom-line" autocomplete="off" maxlength="150" id="opt2"  ng-model="ques.value.option2"
+                />
+            </div>
+            <div class="col-md-3">
+                <label for="opt3" class="inp">Option <span style="color: red;">*</span></label>
+                <input type="text" class="form-control bottom-line" autocomplete="off" maxlength="150" id="opt3"  ng-model="ques.value.option3"
+                />
+            </div>
+        </div>
+        <div class="row margintop text-right" style="margin-right: 5px;">
+            <button class="btn btn-wave-light" style="background: #263a99;color: #fff;" ng-click="vm.createBulkQues()">Submit</button>
+        </div>
+    </div>
+</div>

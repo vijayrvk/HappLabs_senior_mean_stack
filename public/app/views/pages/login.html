@@ -1,0 +1,160 @@
+<style type="text/css">
+    .login-box {
+        padding: 2px;
+        background-color: #837f7e;
+        border-radius: 6px;
+    }
+    
+    .login-btn {
+        background-color: #11306f !important;
+        color: #fff;
+    }
+    
+    .login-btn:hover,
+    .login-btn:focus {
+        background-color: #11306f !important;
+        color: #fff;
+    }
+    
+    body {
+        background: #ececec !important;
+    }
+    
+    .title {
+        font-size: 16px;
+        line-height: 2.5;
+    }
+    
+    .f-link a {
+        color: #11306f;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .f-btn {
+        background-color: #ddd !important;
+    }
+    
+    .f-btn:hover {
+        background-color: #acaaaa !important;
+    }
+    
+    @media all and (min-width: 320px) and (max-width: 568px) {
+        .modal-dialog.login-box {
+            width: 50% !important;
+            margin: 10px auto;
+        }
+    }
+</style>
+<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+<div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true" style="top: 18%;">
+    <div class="modal-dialog login-box">
+        <div class="modal-content">
+            <div class="modal-header" align="center">
+                <div class="row">
+                    <div class="col-md-12 title">
+                        <div class="text-center">MEAN Application.</div>
+                    </div>
+                </div>
+            </div>
+            <form class="form" ng-submit="login.doLogin(loginForm.$valid)" name="loginForm" novalidate>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label" for="focusedInput1">Username</label>
+                        <div class="input-group">
+                            <input type="text" id="focusedInput1" class="form-control bottom-line" name="username" autocomplete="off" required ng-model="login.loginData.username">
+                            <span class="input-group-addon">
+                                <i class="fa fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group log-status">
+                        <label class="control-label" for="focusedInput2">Password</label>
+                        <div class="input-group">
+                            <input type="password" id="focusedInput2" class="form-control bottom-line" name="password" autocomplete="off" required ng-model="login.loginData.password">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-md-6 text-left">
+                            <span ng-click="login.signUp()" class="btn f-btn f-link">
+                                <a >Sign Up</a>
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="submit" class="btn login-btn" ng-disabled="login.processing">
+                                <span ng-if="!login.processing">Login</span>
+                                <span ng-if="login.processing" ng-disabled="true">Login</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="manual_update_modal" class="modal fade" tabindex="-2" data-backdrop="static">
+    <div class="modal-dialog" style="width:50%;margin:5% auto;">
+        <div class="modal-content">
+            <div class="modal-header" style="padding-bottom:0px;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" style="color:#263a99;font-weight: bold;text-align:center;white-space:nowrap;">
+                    Sign Up
+                </h4>
+            </div>
+            <div class="modal-body" style="padding-top:0px;">
+                <form name="finish_form" novalidate>
+                    <div class="row">
+                        <div class="col-md-12" style="padding-left: 15px;z-index: 1;">
+                            <h4 class="heading_a" style="margin-bottom:3px;">Details for sign up</h4>
+                            <div class="card-content text" style="background-color:  #f7f7f7;">
+                                <div >
+                                    <div class="form-group" style="padding-top: 10px;">
+                                        <label for="firstName" class="inp">First Name <span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control bottom-line" autocomplete="off" maxlength="150" id="firstName"  ng-model="login.signUpDet.firstName" onCopy="return false" onPaste="return false"
+                                        />
+                                    </div>
+                                    <div class="form-group" style="padding-top: 10px;">
+                                        <label for="lastName" class="inp">Last Name <span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control bottom-line" autocomplete="off" maxlength="150" id="lastName"  ng-model="login.signUpDet.lastName" onCopy="return false" onPaste="return false"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="inp">Email <span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control bottom-line" autocomplete="off" maxlength="150" id="email"  ng-model="login.signUpDet.email" onCopy="return false" onPaste="return false"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="inp">Password <span style="color: red;">*</span></label>
+                                        <input type="password" class="form-control bottom-line" autocomplete="off" maxlength="150" id="password"  ng-model="login.signUpDet.password" onCopy="return false" onPaste="return false"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cfnpassword" class="inp">Confirm Password <span style="color: red;">*</span></label>
+                                        <input type="password" class="form-control bottom-line" autocomplete="off" maxlength="150" id="cfnpassword"  ng-model="login.signUpDet.cfnPassword" onCopy="return false" onPaste="return false"
+                                        />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contNo" class="inp">Contact No.</label>
+                                        <input type="text" class="form-control bottom-line" autocomplete="off" id="contNo" maxlength="35"  ng-model="login.signUpDet.contactNo" onCopy="return false" onPaste="return false"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div class="margintop" style="padding-top: 5px;text-align: right;padding-right: 20px; background-color: #ffffff;">
+                    <button class="btn btn-wave-light" style="background: #263a99;color: #fff;" ng-click="login.creatUser(login.signUpDet)">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

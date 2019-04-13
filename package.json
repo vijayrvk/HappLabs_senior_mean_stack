@@ -1,0 +1,39 @@
+{
+    "name": "meanfullstack1",
+    "version": "1.0.0",
+    "description": "mean full stack project tryout",
+    "main": "server.js",
+    "scripts": {
+        "postinstall": "cd public && npm install --no-audit",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "async": "^2.4.0",
+        "bcrypt-nodejs": "0.0.3",
+        "body-parser": "~1.9.3",
+        "bson": "^0.4.21",
+        "dotenv": "^6.0.0",
+        "express": "~4.10.3",
+        "express-session": "^1.15.6",
+        "helmet": "^3.13.0",
+        "jsonwebtoken": "^5.5.4",
+        "lodash": "^4.17.2",
+        "morgan": "~1.5.0",
+        "node-uuid": "^1.4.8",
+        "pg": "^6.4.2",
+        "pg-hstore": "^2.3.2",
+        "sequelize": "^3.28.0",
+        "simple-node-logger": "^0.93.17"
+    },
+    "author": "prit",
+    "license": "ISC",
+    "devDependencies": {
+        "sequelize-cli": "^4.0.0"
+    },
+    "repository": {
+        "type": "git"
+    },
+    "keywords": [],
+    "bugs": {}
+}

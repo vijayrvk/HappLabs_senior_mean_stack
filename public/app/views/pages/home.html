@@ -1,0 +1,68 @@
+<style>
+.indexWidth {
+    width: 4%;   
+}
+</style>
+<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+<div class="page-wrapper">
+    <div id="page-content">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="margin-top:0px;margin-bottom: 20px;color: #11306f;">Survey</h4>
+            </div>
+        </div>
+        <div class="row" ng-if="!vm.answered">
+            <div class="form-group col-md-2" style="padding-right: 5px;">
+                <div class="caretd" style="float: right;"></div>
+                <label for="companySize" class="control-label" style="padding-left: 0px;">Catergory</label>
+                <select id="catergory" class="form-control bottom-line" ng-model="vm.filter.catergory" ng-options="obj.value as obj.title for obj in vm.catergories | orderBy:'title'" ng-change="vm.getQuestion()">
+                    <option value="" disabled selected>Select</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-if="filteredQues.length > 0">
+            <div ng-repeat="question in filteredQues track by $index">
+                <div class="col-md-1">
+                    {{$index+1}}.
+                </div>
+                <div class="col-md-11">
+                    {{question.question}}
+                </div>                
+                <div class="col-md-4" ng-if="!vm.showOption">
+                    <label for="radio_demo_1{{$index}}"> <input type="radio" name="answer{{$index}}" id="radio_demo_1{{$index}}" ng-model="question.answer" value="{{question.value.option1}}" />
+                        {{question.value.option1}}</label>                    
+                </div>
+                <div class="col-md-4" ng-if="!vm.showOption">
+                    <label for="radio_demo_2{{$index}}"> <input type="radio" name="answer{{$index}}" id="radio_demo_2{{$index}}" ng-model="question.answer" value="{{question.value.option2}}" />
+                        {{question.value.option2}}</label>                    
+                </div>
+                <div class="col-md-4" ng-if="!vm.showOption">
+                    <label for="radio_demo_3{{$index}}"> <input type="radio" name="answer{{$index}}" id="radio_demo_3{{$index}}" ng-model="question.answer" value="{{question.value.option3}}" />
+                        {{question.value.option3}}</label>                    
+                </div>
+                <div class="col-md-12" ng-if="vm.showOption">
+                    Your selected answer: {{question.answer}}
+                </div>
+            </div>
+        </div>
+        <div ng-if="filteredQues.length > 0">
+            <ul uib-pagination class="pagination" total-items="vm.questions.length" max-size="5" boundary-links="true" ng-model="currentPage" ng-change="pageChanged()" items-per-page="5"></ul>
+        </div>
+        <div class="row margintop text-right" style="margin-right: 5px;" ng-if="currentPage == 2">
+            <button class="btn btn-wave-light" style="background: #263a99;color: #fff;" ng-click="vm.createAnswer()">Submit</button>
+        </div>
+        <div class="row" ng-if="vm.answers.length > 0">
+            <div ng-repeat="answer in vm.answers track by $index">
+                <div class="col-md-1">
+                    {{$index+1}}.
+                </div>
+                <div class="col-md-11">
+                    {{answer.question.question}}
+                </div> 
+                <div class="col-md-12">
+                    Your selected answer: {{answer.answer}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

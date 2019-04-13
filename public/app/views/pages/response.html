@@ -1,0 +1,89 @@
+<toaster-container toaster-options="{'time-out': 3000}"></toaster-container>
+<div class="page-wrapper">
+    <div id="page-content">
+        <div class="row">
+            <div class="col-md-12">
+                <h4 style="margin-top:0px;margin-bottom: 20px;color: #11306f;">Response</h4>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="16%">
+                        <a>First Name</a>
+                    </th>
+                    <th width="13%">
+                        <a>Last Name</a>
+                    </th>
+                    <th width="16%">
+                        <a>Email</a>
+                    </th>
+                    <th width="10%">
+                        <a>User Type</a>
+                    </th>
+                    <th width="10%">
+                        <a>Make Admin</a>
+                    </th>
+                    <th width="10%">
+                        <a>View Response</a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="data in vm.users">
+                    <td>{{data.firstName}}
+                    </td>
+                    <td>{{data.lastName}}</td>
+                    <td>{{data.email}}</td>
+                    <td>{{data.userType}}</td>
+                    <td class="text-center"><a style="cursor: pointer;" ng-click="vm.makeAdmin(data.id)">
+                            <i class="fa fa-check"></i>
+                        </a></td>
+                    <td class="text-center"><a style="cursor: pointer;" ng-click="vm.viewResponse(data.id)">
+                            <i class="fa fa-eye"></i>
+                        </a></td>
+                    
+                </tr>
+                <tr ng-show="vm.users.length == 0">
+                    <td valign="top" colspan="9" class="text-center">No case available</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div id="manual_update_modal" class="modal fade" tabindex="-2" data-backdrop="static">
+        <div class="modal-dialog" style="width:50%;margin:5% auto;">
+            <div class="modal-content">
+                <div class="modal-header" style="padding-bottom:0px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" style="color:#263a99;font-weight: bold;text-align:center;white-space:nowrap;">
+                        Category: {{vm.answers[0].question.category}}
+                    </h4>
+                </div>
+                <div class="modal-body" style="padding-top:0px;">
+                    <form name="finish_form" novalidate>
+                        <div class="row">
+                            <div class="col-md-12" style="padding-left: 15px;z-index: 1;">
+                                <div ng-repeat="answer in vm.answers track by $index">
+                                    <div class="col-md-1">
+                                        {{$index+1}}.
+                                    </div>
+                                    <div class="col-md-11">
+                                        {{answer.question.question}}
+                                    </div> 
+                                    <div class="col-md-12">
+                                        Your selected answer: {{answer.answer}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <div class="margintop" style="padding-top: 5px;text-align: right;padding-right: 20px; background-color: #ffffff;">
+                        <button class="btn btn-wave-light" style="background: #263a99;color: #fff;" ng-click="vm.closeModal()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

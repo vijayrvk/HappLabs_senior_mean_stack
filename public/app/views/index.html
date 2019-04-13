@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <title>MEAN Application</title>
+    <base href="/">
+
+    <link href="assets/css/fontFamily.css" rel="stylesheet">
+
+
+    <!--angular -->
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+    <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="node_modules/angular-touch/angular-touch.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!--angular -->
+
+    <!--jquery -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- jquery -->
+
+    <!-- base UI -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- base UI -->
+
+    <!-- custom -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- custom -->
+
+    <!-- ui-bootstrap -->
+    <script src="assets/js/ui-bootstrap-custom-tpls-2.5.0.min.js"></script>
+    <script src="assets/js/ui-bootstrap-tpls.js"></script>
+
+    <!-- toaster -->
+    <script src="node_modules/angularjs-toaster/toaster.min.js"></script>
+    <link rel="stylesheet" href="node_modules/angularjs-toaster/toaster.min.css" />
+    <!-- toaster -->
+
+
+    <!-- lodash -->
+    <script src="node_modules/lodash/lodash.min.js"></script>
+
+    <!--controllers -->
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/authCtrl.js"></script>
+    <script src="app/controllers/homeCtrl.js"></script>
+    <!--controllers -->
+
+    <!--services -->
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/userService.js"></script>
+    <!--services -->
+
+    <!--directives-->
+    <script src="app/utils/localstorage.js"></script>
+    <!--directives-->
+
+    <!--angular app files -->
+    <script src="/app/app.uiroutes.js"></script>
+    <script src="/app/app.js"></script>
+    <!--angular app files -->
+
+    <style type="text/css">
+        html,
+        body {
+            font-family: 'Open Sans' !important;
+        }
+    </style>
+
+</head>
+
+<body ng-app="userApp">
+    <div ui-view style="height: 100%;">
+
+    </div>
+</body>
+
+</html>
