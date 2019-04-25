@@ -1,4 +1,4 @@
-# HappLabs_senior_mean_stack
+# mean_stack
 
 Node version 10.15.0
 Npm version 6.4.1
